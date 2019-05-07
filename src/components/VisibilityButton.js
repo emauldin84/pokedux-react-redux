@@ -1,8 +1,16 @@
 import React from 'react'
 
 function VisibilityButton({handleClick, label}) {
+    console.log(label)
     return(
-        <button onClick={handleClick}>{label}</button>
+        label.map(lab => {
+            return (
+            <button onClick={() => {
+                handleClick(lab)
+            }}>{lab}</button>
+            )
+        })
+        
     )
 }
 
