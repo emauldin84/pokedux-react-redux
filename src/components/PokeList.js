@@ -1,8 +1,12 @@
 import React from 'react'
 
-function PokeList({cards}) {
+function PokeList({cards, handleClick}) {
     const cardItems = cards.map(card => {
-        return<p>{card.name}</p>
+        return<p key={card.id} onClick={ () => {
+            // to pass handleClick a custom argument
+            // we must wrap it in an anonymous function
+            handleClick(card.id)
+        }}>{card.name}</p>
     })
     
     return(
